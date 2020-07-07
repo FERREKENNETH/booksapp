@@ -46,7 +46,7 @@ class PanelAdd extends React.Component {
 
     render (){
         return(
-            <div className="new-item-panel-container">
+            <div className="new-item-panel-container"> {/* Actua como una pantalla negra para tapar el contenido y solo se vea el formulario */}
                 <div className="new-item-panel">
                     <form onSubmit={this.createItem}>
                         <p>
@@ -73,8 +73,8 @@ class PanelAdd extends React.Component {
                         </p>
 
                         <p>
-                        <label>Rating</label><br />
-                        <select onChange={this.onChangeRating}>
+                        <label>Rating</label><br/>
+                        <select onChange={this.onChangeRating}>Rating
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>

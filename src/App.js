@@ -13,11 +13,11 @@ class App extends React.Component {
 
     this.state = {
       books: [
-        {id:0, rating:4, title:'Harry Poter', image:'libro01'},
-        {id:1, rating:3, title:'The Shining', image:'libro02'},
-        {id:2, rating:5, title:'Codigo Da Vinci', image:'libro03'},
-        {id:3, rating:2, title:'EL principito', image:'libro04'},
-        {id:4, rating:1, title:'Sobrenatural', image:'libro05'}
+        {id:0, rating:5, title:'Libertad Total', image:'https://images-na.ssl-images-amazon.com/images/I/419EdUhA-1L._SX331_BO1,204,203,200_.jpg'},
+        {id:1, rating:3, title:'El Conocimiento de uno Mismo', image:'https://cdn.slidesharecdn.com/ss_thumbnails/elconocimientodeunomismodejiddukrishnamurtir1-140817165755-phpapp01-thumbnail-4.jpg?cb=1408295866'},
+        {id:2, rating:5, title:'Darse Cuenta', image:'https://static.cegal.es/imagenes/marcadas/9788484/978848445322.gif'},
+        {id:3, rating:2, title:'Las Cuatro Nobles Verdades', image:'https://imagessl5.casadellibro.com/a/l/t5/35/9788499887135.jpg'},
+        {id:4, rating:3, title:'Ego, Apego y Liberación', image:'https://www.edicionesdharma.com/images/ego-apego.jpg'}
       ]
     };
   }

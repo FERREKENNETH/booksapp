@@ -24,8 +24,8 @@ class Item extends Component{
             <div className="item" > {/* key={this.props.id} */}
 
                 <div className="image">
-
-                    <img src={'img/'+ this.props.image+'.jpg'} width="100%"/>
+                    {/* <img src={'img/' + this.state.image} width="100%" /> */}
+                    <img src={this.props.image} width="100%"/>
                     
                 </div>
 
