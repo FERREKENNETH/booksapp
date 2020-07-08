@@ -17,9 +17,13 @@ class Menu extends Component{
     /* add () {} , si utilizamos arrowFunction no hace falta el this.add en el constructor!!!!*/
     //Con la funcion de flecha, el this si esta siendo heradado por la clase
     //Sin la funcion flecha, la funcion add no necesariamente esta siendo heredada por la clase, por eso le tenemos que añadir el bind!!
-    add = () => {
+    showPanel = () => {
         this.setState({newItemPanel: true})
         //console.log('click')
+    }
+    //para ocultar en el componente 'panel de agregar'
+    hidePanel = (e) => {
+        this.setState( {newItemPanel: false });
     }
 
     render () {
@@ -40,7 +44,7 @@ class Menu extends Component{
                     <div className="actions">
                         <button 
                             className="button btn-blue"
-                            onClick={this.add}   
+                            onClick={this.showPanel}   
                         >
                             Añadir libro
                         </button>
@@ -50,7 +54,10 @@ class Menu extends Component{
                 {/* Aqui añadimos la condicion de si la variable booleana esta a true o false, se muestre el panel o no */}
                 {
                     (this.state.newItemPanel)
-                    ? <PanelAdd/>
+                    ? <PanelAdd 
+                        hidePanel={this.hidePanel}
+                        addBook={this.props.addBook}
+                      />
                     : ''
                 }
                 

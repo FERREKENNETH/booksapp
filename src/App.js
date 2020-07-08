@@ -20,12 +20,27 @@ class App extends React.Component {
         {id:4, rating:3, title:'Ego, Apego y Liberación', image:'https://www.edicionesdharma.com/images/ego-apego.jpg'}
       ]
     };
+    
   }
+  addBook = (book) =>{
+    //copiamos el array que tenemos en el state en la variable temp
+    let temp = [ ... this.state.books ];
+    //calculamos el nuevo id
+    const id = temp[temp.length-1].id ++;
+    temp.push(book);
+    //en el array books, que esta en el state,  le copiamos el array temp, que es una copia de books del state mas el nuevo book agragado
+    this.setState( { books: [... temp] } );
 
+
+
+  }
   render(){
     return (
         <div className="app">
-          <Menu title="La libreria en casa"/>
+          <Menu 
+            title="La libreria en casa"
+            addBook={this.addBook}
+          />
           <List books={this.state.books}/>
         </div>
     );
@@ -38,5 +53,5 @@ export default App;
 /*  
 https://www.youtube.com/watch?v=eXSP524SBgw
 
-Minuto 48 23
+Minuto 57 30-39
 */

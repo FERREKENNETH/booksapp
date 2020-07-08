@@ -12,9 +12,10 @@ class Item extends Component{
             stars:[]
         };
     }
-
+    /* componentDidMount() se invoca inmediatamente después de que un componente se monte (se inserte en el árbol) */
     componentDidMount () {
         this.setState({
+            //define el array stars de tantas posiciones como sea el numero rating y le colocamos el valor de 1, por ponerle algo, podria ser otro valor
             stars: Array(parseInt(this.props.rating)).fill(1)
         });
     }
@@ -34,24 +35,17 @@ class Item extends Component{
                 </div>
 
                 <div className="rating">
+                    <p>Calificación</p>
                     <p>
                         {
-                            this.state.stars.map(x =>
+                            this.state.stars.map ( x =>
                                 <img src={'img/star.png'} width="32"/>        
                             )
                         }
                     </p>
-                    Calificacion:
-                    <select value={this.props.rating} >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
                 </div>
                 <div className="actions">
-                    <button>Eliminar</button>
+                    <button className="button">Eliminar</button>
                 </div>
 
             </div>

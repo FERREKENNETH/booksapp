@@ -4,6 +4,7 @@ class PanelAdd extends React.Component {
 
     constructor (props){
         super(props);
+        /* en React al utilizar Formularios siempre recomiendan utilizar el state para manejar los cambios de los inputs/campos, para que cuando cambien el valor del campo, se actualice el state directamente, y a su vez este campo recibe la informacion del state para mostrar ese valor  */
         this.state = {
             title:'',
             image:'',
@@ -11,14 +12,10 @@ class PanelAdd extends React.Component {
         }
     }
 
-    cancelAction = () => {
-        this.props.onhide();
-    }
-
     onChangeTitle = (e) => {
         this.setState ( {title: e.target.value} );
         console.log(e.target.value)
-        console.log(this.props.title)// es undefined porque no lo actializa inmediatamente!!
+        //console.log(this.props.title)// es undefined porque NO lo actualiza inmediatamente!!
     }
 
     onChangeImage = (e) => {
@@ -37,10 +34,11 @@ class PanelAdd extends React.Component {
         const title = this.state.title;
         const image = this.state.image;
         const rating = this.state.rating;
-        this.props.onadd ( {title: title, image: image, rating: rating} );
-        this.cancelAction();
-
+        this.props.addBook ( {title: title, image: image, rating: rating} );
+        this.props.hidePanel();
     }
+
+
 
 
 
@@ -89,10 +87,11 @@ class PanelAdd extends React.Component {
                         />
                         <button 
                             className="button btn-normal"
-                            onClick={this.cancelAction} 
+                            onClick={this.props.hidePanel} 
                         >
                             Cancelar
-                        </button> {/* onClick={this.props.onhide} en el button haria la misma funcion!*/}
+                        </button> 
+                        
                     </form>
                 </div>
             </div>
@@ -101,3 +100,6 @@ class PanelAdd extends React.Component {
 }
 
 export default PanelAdd;
+
+
+/* ES UN EJEMPLO DE COMO SE OCULTA EL FORMULARIO(COMPONENTE) SIN LA NECESIDAD DE VOLVER A REFRESCAR LA PAGINA, AQUI ESTAMOS VIENDO UN EJEMPLO CLARO DE COMO UTILIZAMOS ESTILOS CSS PARA MOSTRAR COMPONENTES BASADOS EN EL ESTADO QUE DEFINIMOS CON REACTJS*/
